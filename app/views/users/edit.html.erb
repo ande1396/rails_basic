@@ -1,0 +1,27 @@
+<h1>Editing User info</h1>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<%= error %>
+	<% end %>
+<% end %>
+
+<form action="/users/<%= @user.id %>" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<!-- 2 --> 
+	<input type="hidden" name="_method" value="put">
+	<!-- 2 --> 
+	<input type="text" name="[user][first_name]" placeholder="<%= @user.first_name %>"> <!-- 1--> 
+	<input type="text" name="[user][last_name]" placeholder="Last Name">
+	<input type="email" name="[user][email_address]" placeholder="email address">
+	<input  type="password" name="[user][password]" placeholder="password">
+	<input type="submit" value="Submit Posts">
+
+</form>
+
+<!-- 1. like a placeholder, when you edit the page, the current username will show up kind of like a placeholder  --> 
+
+<!-- 2. Make it hidden so the user cant see, _method (has to be called- RAILS) value -> put because of the rake routes, has to match a verb. IE  PUT, PATCH, delete, dont need to use for simple form
+
+This is like the php part with the key and the value 
+--> 

@@ -1,0 +1,29 @@
+<h1>This is the show page</h1>
+
+
+<%= @user.first_name %> 
+<%= @user.last_name %> 
+<%= @user.email_address %> 
+<%= @user.password %> 
+
+<form action="/users/<%= @user.id %>" method="post">
+	<!-- where the delete form gets processed, like process.php--> 
+
+	<!-- users/id and takes the value from "delete below, which is the verb on rake routes for destroy, then it goes to the controller" --> 
+
+
+	<!-- 3 --> 
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<!-- 2 --> 
+	<input type="hidden" name="_method" value="delete">
+	<!-- 2 --> 
+	<input type='submit' value="Delete">
+
+</form>
+
+<!-- dont need.each cuz we only have that one user 
+when it saves, we go to the show page -->  
+
+<!-- 2. the users/id from above has 4 different urls on the rake routes, so to distuingish, use the value="delete"--> 
+
+<!-- 3. In the rake routes, you need  --> 

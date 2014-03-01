@@ -1,0 +1,20 @@
+
+<% if flash[:errors] %> <!-- flash is like session --> 
+	<% flash[:errors].each do |error| %>
+		<%= error %>
+	<% end %>
+<% end %>
+<!-- these are the error messages, kind of like php --> 
+<!-- flash is like session --> 
+
+<form action="/users" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="text" name="[user][first_name]" placeholder="First Name">
+	<input type="text" name="[user][last_name]" placeholder="Last Name">
+	<input type="email" name="[user][email_address]" placeholder="email address">
+	<input  type="password" name="[user][password]" placeholder="password">
+	<input type="submit" value="Submit Posts">
+
+</form>
+
+<!-- can either copy the form or make a new file __form.html.erb on test1 --> 
